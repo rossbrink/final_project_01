@@ -1,0 +1,55 @@
+<h1>
+  List of All Providers
+</h1>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Organization Name
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Price
+    </th>
+
+    <th>
+      Link
+    </th>
+  </tr>
+
+  <% @list_of_providers.each do |provider| %>
+  <tr>
+    <td>
+      <img src="<%= provider.image %>">
+    </td>
+
+    <td>
+      <%= provider.organization_name %>
+    </td>
+
+    <td>
+      <%= provider.first_name %>
+    </td>
+
+    <td>
+      <%= provider.price %>
+    </td>
+
+    <td>
+      <a href="/providers/<%= provider.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
