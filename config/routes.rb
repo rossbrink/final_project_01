@@ -248,5 +248,9 @@ Rails.application.routes.draw do
 
   # -----------------------------
   
+  # Provider Visible Profile
+
+  get("/provider/:path_id", { :controller => "provider", :action => "profile" })
+
 
 end
