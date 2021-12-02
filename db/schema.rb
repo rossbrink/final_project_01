@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_021541) do
+ActiveRecord::Schema.define(version: 2021_12_02_052424) do
 
   create_table "availabilities", force: :cascade do |t|
-    t.integer "day"
+    t.string "day"
     t.time "open_time"
     t.time "close_time"
     t.integer "schedule_id"
