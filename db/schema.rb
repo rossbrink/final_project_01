@@ -10,31 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_042450) do
-
-  create_table "business_types", force: :cascade do |t|
-    t.integer "provider_id"
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_12_02_020629) do
 
   create_table "providers", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.string "image"
+    t.string "organization_name"
     t.string "first_name"
     t.string "last_name"
+    t.string "description"
     t.decimal "price"
-    t.integer "availability_id"
-    t.decimal "lat"
-    t.decimal "long"
-    t.string "organization_name"
-    t.string "image"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "seekers", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.string "first_name"
