@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Experience #<%= @the_experience.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/experiences">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_experience/<%= @the_experience.id %>">
+          Delete experience
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Credential
+      </dt>
+      <dd>
+        <%= @the_experience.credential_id %>
+      </dd>
+
+      <dt>
+        Provider
+      </dt>
+      <dd>
+        <%= @the_experience.provider_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_experience.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_experience.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit experience
+    </h2>
+
+    <form action="/modify_experience/<%= @the_experience.id %>"  method="post" >
+      <div>
+        <label for="credential_id_box">
+          Credential
+        </label>
+
+        <input type="text" id="credential_id_box" name="query_credential_id" value="<%= @the_experience.credential_id %>">
+      </div>
+
+      <div>
+        <label for="provider_id_box">
+          Provider
+        </label>
+
+        <input type="text" id="provider_id_box" name="query_provider_id" value="<%= @the_experience.provider_id %>">
+      </div>
+
+      <button>
+        Update experience
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

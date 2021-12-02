@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all availabilities
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new availability
+    </h2>
+
+    <form action="/insert_availability" method="post">
+      <div>
+        <label for="day_box">
+          Day
+        </label>
+
+        <input type="text" id="day_box" name="query_day">
+      </div>
+
+      <div>
+        <label for="open_time_box">
+          Open time
+        </label>
+
+        <input type="time" id="open_time_box" name="query_open_time">
+      </div>
+
+      <div>
+        <label for="close_time_box">
+          Close time
+        </label>
+
+        <input type="time" id="close_time_box" name="query_close_time">
+      </div>
+
+      <div>
+        <label for="schedule_id_box">
+          Schedule
+        </label>
+
+        <input type="text" id="schedule_id_box" name="query_schedule_id">
+      </div>
+
+      <button>
+        Create availability
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Day
+        </th>
+
+        <th>
+          Open time
+        </th>
+
+        <th>
+          Close time
+        </th>
+
+        <th>
+          Schedule
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_availabilities.each do |an_availability| %>
+      <tr>
+        <td>
+          <%= an_availability.id %>
+        </td>
+
+        <td>
+          <%= an_availability.day %>
+        </td>
+
+        <td>
+          <%= an_availability.open_time %>
+        </td>
+
+        <td>
+          <%= an_availability.close_time %>
+        </td>
+
+        <td>
+          <%= an_availability.schedule_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_availability.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_availability.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/availabilities/<%= an_availability.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

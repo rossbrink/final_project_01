@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Business type #<%= @the_business_type.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/business_types">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_business_type/<%= @the_business_type.id %>">
+          Delete business type
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_business_type.name %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_business_type.description %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_business_type.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_business_type.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit business type
+    </h2>
+
+    <form action="/modify_business_type/<%= @the_business_type.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_business_type.name %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_business_type.description %>">
+      </div>
+
+      <button>
+        Update business type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

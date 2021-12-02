@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all business types
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new business type
+    </h2>
+
+    <form action="/insert_business_type" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <button>
+        Create business type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_business_types.each do |a_business_type| %>
+      <tr>
+        <td>
+          <%= a_business_type.id %>
+        </td>
+
+        <td>
+          <%= a_business_type.name %>
+        </td>
+
+        <td>
+          <%= a_business_type.description %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_business_type.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_business_type.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/business_types/<%= a_business_type.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Schedule #<%= @the_schedule.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/schedules">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_schedule/<%= @the_schedule.id %>">
+          Delete schedule
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Provider
+      </dt>
+      <dd>
+        <%= @the_schedule.provider_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_schedule.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_schedule.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit schedule
+    </h2>
+
+    <form action="/modify_schedule/<%= @the_schedule.id %>"  method="post" >
+      <div>
+        <label for="provider_id_box">
+          Provider
+        </label>
+
+        <input type="text" id="provider_id_box" name="query_provider_id" value="<%= @the_schedule.provider_id %>">
+      </div>
+
+      <button>
+        Update schedule
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

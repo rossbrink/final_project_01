@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all schedules
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new schedule
+    </h2>
+
+    <form action="/insert_schedule" method="post">
+      <div>
+        <label for="provider_id_box">
+          Provider
+        </label>
+
+        <input type="text" id="provider_id_box" name="query_provider_id">
+      </div>
+
+      <button>
+        Create schedule
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Provider
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_schedules.each do |a_schedule| %>
+      <tr>
+        <td>
+          <%= a_schedule.id %>
+        </td>
+
+        <td>
+          <%= a_schedule.provider_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_schedule.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_schedule.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/schedules/<%= a_schedule.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Availability #<%= @the_availability.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/availabilities">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_availability/<%= @the_availability.id %>">
+          Delete availability
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Day
+      </dt>
+      <dd>
+        <%= @the_availability.day %>
+      </dd>
+
+      <dt>
+        Open time
+      </dt>
+      <dd>
+        <%= @the_availability.open_time %>
+      </dd>
+
+      <dt>
+        Close time
+      </dt>
+      <dd>
+        <%= @the_availability.close_time %>
+      </dd>
+
+      <dt>
+        Schedule
+      </dt>
+      <dd>
+        <%= @the_availability.schedule_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_availability.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_availability.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit availability
+    </h2>
+
+    <form action="/modify_availability/<%= @the_availability.id %>"  method="post" >
+      <div>
+        <label for="day_box">
+          Day
+        </label>
+
+        <input type="text" id="day_box" name="query_day" value="<%= @the_availability.day %>">
+      </div>
+
+      <div>
+        <label for="open_time_box">
+          Open time
+        </label>
+
+        <input type="time" id="open_time_box" name="query_open_time" value="<%= @the_availability.open_time %>">
+      </div>
+
+      <div>
+        <label for="close_time_box">
+          Close time
+        </label>
+
+        <input type="time" id="close_time_box" name="query_close_time" value="<%= @the_availability.close_time %>">
+      </div>
+
+      <div>
+        <label for="schedule_id_box">
+          Schedule
+        </label>
+
+        <input type="text" id="schedule_id_box" name="query_schedule_id" value="<%= @the_availability.schedule_id %>">
+      </div>
+
+      <button>
+        Update availability
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
