@@ -1,7 +1,7 @@
 desc "Hydrate the database with some sample data to look at so that developing is easier"
 task({ :sample_data => :environment}) do
   require 'faker'
-  require 'Date'
+  require 'date'
   
   Provider.destroy_all
 
@@ -196,7 +196,23 @@ task({ :sample_data => :environment}) do
 
   50.times do
     availability = Availability.new
-    availability.day = rand(7)
+    day = rand(7)
+    availability.day = Date::DAYNAMES[day]
+    availability.open_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
+    availability.close_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
+    availability.save
+  end
+
+  Review.destroy_all
+
+  50.times do
+    review = Review.new
+    review.title = Faker::Restaurant.name
+    review.rating = rand(4)
+    review.description = Faker::Restaurant.review
+    review.provider_id = Provider.all.sample.id
+    review.author_id = User.all.sample.id
+    review.save
   end
 
 end
