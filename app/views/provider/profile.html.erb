@@ -22,6 +22,7 @@
   </h3>
 </div>
 
+<div>
 <form action="/insert_availability" method="post">
 
   <label for="monday_day">Monday</label>
@@ -140,3 +141,28 @@
 
   <button>Submit</button>
 </form>
+</div>
+
+    <%# the_credential = Credential.new
+    the_credential.name = params.fetch("query_name")
+    the_credential.date_received = params.fetch("query_date_received")
+    the_credential.description = params.fetch("query_description")
+    the_credential.institution = params.fetch("query_institution") %>
+
+<div>
+  <form action="/insert_credential" method="post">
+    <label for="credential_name">Name</label>
+    <input id="credential_name" type="text" name="query_name">
+
+    <label for="credential_date">Date Received</label>
+    <input id="credential_date" type="date" name="query_date_received">
+
+    <label for="credential_description">Description</label>
+    <textarea id="credential_description" type="text" name="query_description"></textarea>
+
+    <label for="credential_institution">Institution</label>
+    <input id="credential_institution" type="text" name="query_institution">
+
+    <button>Submit</button>
+  </form>
+</div>
