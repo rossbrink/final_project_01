@@ -26,7 +26,7 @@
 <form action="/insert_availability" method="post">
 
   <label for="monday_day">Monday</label>
-  <input id="monday_day" type="hidden" name="query_day">
+  <input id="monday_day" type="hidden" name="query_day" value="Monday">
 
   <label for="monday_open_time">Open</label>
   <input id="monday_open_time" type="time" name="query_open_time">
@@ -164,5 +164,42 @@
     <input id="credential_institution" type="text" name="query_institution">
 
     <button>Submit</button>
+  </form>
+</div>
+
+<div>
+  <form action="/insert_language" method="post">
+    <label for="language_name">Language</label>
+    <select id="language_name" name="query_name">
+      <option value="English">English</option>
+      <option value="English">Spanish</option>
+      <option value="English">Polish</option>
+    </select>
+    <button>Submit</button>
+  </form>
+</div>
+
+<div>
+  <form action="/insert_language" method="post">
+    <legend>Languages</legend>
+
+      <div>
+        <label for="language_name">English</label>
+        <input id="language_name" type="checkbox" name="query_name" value="English">
+      </div>
+
+      <div>
+        <label for="language_name">Spanish</label>
+        <input id="language_name" type="checkbox" name="query_name" value="Spanish">
+      </div>
+      
+      <div>
+        <label for="language_name">Polish</label>
+        <input id="language_name" type="checkbox" name="query_name" value="Polish">
+      </div>
+
+      <div>
+        <button type="Submit">Submit</button>
+      </div>
   </form>
 </div>
