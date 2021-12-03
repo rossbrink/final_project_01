@@ -11,4 +11,6 @@
 #  schedule_id :integer
 #
 class Availability < ApplicationRecord
+  belongs_to(:schedule, { :required => true, :class_name => "Schedule", :foreign_key => "schedule_id" })
+
 end

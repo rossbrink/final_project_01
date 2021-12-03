@@ -194,15 +194,28 @@ task({ :sample_data => :environment}) do
 
   Availability.destroy_all
 
-  50.times do
+  # 50.times do
+  #   availability = Availability.new
+  #   day = rand(7)
+  #   availability.day = Date::DAYNAMES[day]
+  #   availability.open_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
+  #   availability.close_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
+  #   availability.schedule_id = Provider.order("RANDOM()").first
+  #   availability.save
+  # end
+
+  availability_id_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+  10.times do
     availability = Availability.new
     day = rand(7)
     availability.day = Date::DAYNAMES[day]
     availability.open_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
     availability.close_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
-    availability.schedule_id = Provider.order("RANDOM()").first
+    availability.schedule_id = availability_id_array.sample
     availability.save
   end
+
 
   Review.destroy_all
 

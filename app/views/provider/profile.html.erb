@@ -6,8 +6,11 @@
 
 <div>
   <h1>
-    <%= @the_provider.organization_name %>
+    Org: <%= @the_provider.organization_name %>
   </h1>
+  <h2>
+    Type: <%= @the_provider.business_type.name %>
+  </h2>
   <h1>
     <%= @the_provider.full_name %>
   </h1>
@@ -15,12 +18,39 @@
     <%= @the_provider.email %>
   </h2>
   <h2>
-    <%= @the_provider.price %>
+    $<%= @the_provider.price %>/hour
   </h2>
   <h3>
-    <%= @the_provider.schedule %>
+    <%= @the_provider.schedule.availabilities.first.day %>
+    <%= @the_provider.schedule.availabilities.first.open_time %>
+    <%= @the_provider.schedule.availabilities.first.close_time %>
+  </h3>
+  <h3>
+    <%= @the_provider.spoken_language.languages.first.name %>
+    <%= @the_provider.spoken_language.languages.last.name %>
   </h3>
 </div>
+
+
+<h3>
+  What is your type of business?
+</h3>
+
+<div>
+  <form action="/insert_business_type" method="post">
+    <label for="business_name">Language</label>
+    <select id="business_name" name="query_name">
+      <option value="Individual">Individual</option>
+      <option value="Non-Profit">Non-Profit</option>
+      <option value="Private Institution">Private Institution</option>
+    </select>
+    <button>Submit</button>
+  </form>
+</div>
+
+<h3>
+  What is your availability?
+</h3>
 
 <div>
 <form action="/insert_availability" method="post">
@@ -148,6 +178,9 @@
     the_credential.date_received = params.fetch("query_date_received")
     the_credential.description = params.fetch("query_description")
     the_credential.institution = params.fetch("query_institution") %>
+<h3>
+  What are your credentials?
+</h3>
 
 <div>
   <form action="/insert_credential" method="post">
@@ -167,7 +200,12 @@
   </form>
 </div>
 
-<div>
+
+<h3>
+  What languages do you speak?
+</h3>
+
+<%# <div>
   <form action="/insert_language" method="post">
     <label for="language_name">Language</label>
     <select id="language_name" name="query_name">
@@ -177,7 +215,7 @@
     </select>
     <button>Submit</button>
   </form>
-</div>
+</div> %>
 
 <div>
   <form action="/insert_language" method="post">
@@ -201,5 +239,35 @@
       <div>
         <button type="Submit">Submit</button>
       </div>
+  </form>
+</div>
+
+
+<h3>
+  What needs do you serve?
+</h3>
+
+<div>
+  <form action="/insert_need" method="post">
+    <legend>Needs</legend>
+
+      <div>
+        <label for="need_name">ADHD</label>
+        <input id="need_name" type="checkbox" name="query_name" value="ADHD">
+      </div>
+
+      <div>
+        <label for="need_name">Down Syndrome</label>
+        <input id="need_name" type="checkbox" name="query_name" value="Down Syndrome">
+      </div>
+
+      <div>
+        <label for="need_name">Autism</label>
+        <input id="need_name" type="checkbox" name="query_name" value="Autism">
+      </div>
+
+      <div>
+        <button type="Submit">Submit</button>
+      </div>    
   </form>
 </div>

@@ -20,7 +20,8 @@ class BusinessTypesController < ApplicationController
   def create
     the_business_type = BusinessType.new
     the_business_type.name = params.fetch("query_name")
-    the_business_type.description = params.fetch("query_description")
+    the_business_type.provider_id = 1123
+    # the_business_type.description = params.fetch("query_description")
 
     if the_business_type.valid?
       the_business_type.save

@@ -9,4 +9,5 @@
 #
 class Schedule < ApplicationRecord
   belongs_to(:provider, { :required => true, :class_name => "Provider", :foreign_key => "provider_id" })
+  has_many(:availabilities, { :class_name => "Availability", :foreign_key => "schedule_id", :dependent => :destroy })
 end

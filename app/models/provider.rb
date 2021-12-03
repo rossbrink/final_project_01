@@ -21,7 +21,11 @@ class Provider < ApplicationRecord
   has_secure_password
 
   has_one(:schedule, { :class_name => "Schedule", :foreign_key => "provider_id", :dependent => :destroy })
-  # has_one(:availabilities, { :through => :schedule, :source => :availabilities })
+
+  has_one(:spoken_language, { :class_name => "SpokenLanguage", :foreign_key => "provider_id", :dependent => :destroy })
+
+  has_one(:business_type, { :class_name => "BusinessType", :foreign_key => "provider_id", :dependent => :destroy })
+
 
   def full_name
     first = self.first_name

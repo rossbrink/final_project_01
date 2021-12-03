@@ -10,4 +10,5 @@
 #  provider_id :integer
 #
 class BusinessType < ApplicationRecord
+  belongs_to(:provider, { :required => true, :class_name => "Provider", :foreign_key => "provider_id" })
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_014709) do
+ActiveRecord::Schema.define(version: 2021_12_03_203429) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string "day"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 2021_12_03_014709) do
     t.string "institution"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "experience_id"
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.integer "credential_id"
     t.integer "provider_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_014709) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "spoken_language_id"
   end
 
   create_table "needs", force: :cascade do |t|
@@ -97,7 +98,6 @@ ActiveRecord::Schema.define(version: 2021_12_03_014709) do
 
   create_table "spoken_languages", force: :cascade do |t|
     t.integer "provider_id"
-    t.integer "language_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
