@@ -1,1 +1,142 @@
-PROVIDER PROFILE <%= params.fetch("path_id") %>
+<h1>
+  <%= params.fetch("path_id") %>
+</h1>
+
+<img src="<%= @the_provider.image %>">  
+
+<div>
+  <h1>
+    <%= @the_provider.organization_name %>
+  </h1>
+  <h1>
+    <%= @the_provider.full_name %>
+  </h1>
+  <h2>
+    <%= @the_provider.email %>
+  </h2>
+  <h2>
+    <%= @the_provider.price %>
+  </h2>
+  <h3>
+    <%= @the_provider.schedule %>
+  </h3>
+</div>
+
+<form action="/insert_availability" method="post">
+
+  <label for="monday_day">Monday</label>
+  <input id="monday_day" type="hidden" name="query_day">
+
+  <label for="monday_open_time">Open</label>
+  <input id="monday_open_time" type="time" name="query_open_time">
+
+  <label for="monday_close_time">Close</label>
+  <input id="monday_close_time" type="time" name="query_close_time">
+
+  <label for="monday_schedule_id"></label>
+  <input id="monday_schedule_id" type="hidden" name="query_schedule_id">
+  
+  <button>Submit</button>
+</form>
+
+<form action="/insert_availability" method="post">
+
+  <label for="tuesday_day">Tuesday</label>
+  <input id="tuesday_day" type="hidden" name="query_day">
+
+  <label for="tuesday_open_time">Open</label>
+  <input id="tuesday_open_time" type="time" name="query_open_time">
+
+  <label for="tuesday_close_time">Close</label>
+  <input id="tuesday_close_time" type="time" name="query_close_time">
+
+  <label for="tuesday_schedule_id"></label>
+  <input id="tuesday_schedule_id" type="hidden" name="query_schedule_id">
+  
+  <button>Submit</button>
+</form>
+
+<form action="/insert_availability" method="post">
+
+  <label for="wednesday_day">Wednesday</label>
+  <input id="wednesday_day" type="hidden" name="query_day">
+
+  <label for="wednesday_open_time">Open</label>
+  <input id="wednesday_open_time" type="time" name="query_open_time">
+
+  <label for="wednesday_close_time">Close</label>
+  <input id="wednesday_close_time" type="time" name="query_close_time">
+
+  <label for="wednesday_schedule_id"></label>
+  <input id="wednesday_schedule_id" type="hidden" name="query_schedule_id">
+  
+  <button>Submit</button>
+</form>
+
+<form action="/insert_availability" method="post">
+
+  <label for="thursday_day">Thursday</label>
+  <input id="thursday_day" type="hidden" name="query_day">
+
+  <label for="thursday_open_time">Open</label>
+  <input id="thursday_open_time" type="time" name="query_open_time">
+
+  <label for="thursday_close_time">Close</label>
+  <input id="thursday_close_time" type="time" name="query_close_time">
+
+  <label for="thursday_schedule_id"></label>
+  <input id="thursday_schedule_id" type="hidden" name="query_schedule_id">
+  
+  <button>Submit</button>
+</form>
+
+<form action="/insert_availability" method="post">
+
+  <label for="friday_day">Friday</label>
+  <input id="friday_day" type="hidden" name="query_day">
+
+  <label for="friday_open_time">Open</label>
+  <input id="friday_open_time" type="time" name="query_open_time">
+
+  <label for="friday_close_time">Close</label>
+  <input id="friday_close_time" type="time" name="query_close_time">
+
+  <label for="friday_schedule_id"></label>
+  <input id="friday_schedule_id" type="hidden" name="query_schedule_id">
+  
+  <button>Submit</button>
+</form>
+
+<form action="/insert_availability" method="post">
+
+  <label for="saturday_day">Saturday</label>
+  <input id="saturday_day" type="hidden" name="query_day">
+
+  <label for="saturday_open_time">Open</label>
+  <input id="saturday_open_time" type="time" name="query_open_time">
+
+  <label for="saturday_close_time">Close</label>
+  <input id="saturday_close_time" type="time" name="query_close_time">
+
+  <label for="saturday_schedule_id"></label>
+  <input id="saturday_schedule_id" type="hidden" name="query_schedule_id">
+  
+  <button>Submit</button>
+</form>
+
+<form action="/insert_availability" method="post">
+
+  <label for="sunday_day">Sunday</label>
+  <input id="sunday_day" type="hidden" name="query_day">
+
+  <label for="sunday_open_time">Open</label>
+  <input id="sunday_open_time" type="time" name="query_open_time">
+
+  <label for="sunday_close_time">Close</label>
+  <input id="sunday_close_time" type="time" name="query_close_time">
+
+  <label for="sunday_schedule_id"></label>
+  <input id="sunday_schedule_id" type="hidden" name="query_schedule_id">
+
+  <button>Submit</button>
+</form>

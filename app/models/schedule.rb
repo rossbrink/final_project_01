@@ -8,4 +8,5 @@
 #  provider_id :integer
 #
 class Schedule < ApplicationRecord
+  belongs_to(:provider, { :required => true, :class_name => "Provider", :foreign_key => "provider_id" })
 end

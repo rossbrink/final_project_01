@@ -19,4 +19,14 @@ class Provider < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_one(:schedule, { :class_name => "Schedule", :foreign_key => "provider_id", :dependent => :destroy })
+  # has_one(:availabilities, { :through => :schedule, :source => :availabilities })
+
+  def full_name
+    first = self.first_name
+    last = self.last_name
+    full = first + " " + last
+    return full
+  end
 end

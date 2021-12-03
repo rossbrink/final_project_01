@@ -200,6 +200,7 @@ task({ :sample_data => :environment}) do
     availability.day = Date::DAYNAMES[day]
     availability.open_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
     availability.close_time = Faker::Time.between(from: DateTime.now-1, to: DateTime.now)
+    availability.schedule_id = Provider.order("RANDOM()").first
     availability.save
   end
 
