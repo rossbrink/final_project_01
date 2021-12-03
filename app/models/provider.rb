@@ -26,6 +26,11 @@ class Provider < ApplicationRecord
 
   has_one(:business_type, { :class_name => "BusinessType", :foreign_key => "provider_id", :dependent => :destroy })
 
+  has_one(:experience, { :class_name => "Experience", :foreign_key => "provider_id", :dependent => :destroy })
+
+  has_many(:reviews, { :class_name => "Review", :foreign_key => "provider_id", :dependent => :destroy })
+
+  has_one(:service, { :class_name => "Service", :foreign_key => "provider_id", :dependent => :destroy })
 
   def full_name
     first = self.first_name

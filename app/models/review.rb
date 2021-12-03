@@ -12,4 +12,6 @@
 #  provider_id :integer
 #
 class Review < ApplicationRecord
+  belongs_to(:provider, { :required => true, :class_name => "Provider", :foreign_key => "provider_id" })
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "author_id" })
 end

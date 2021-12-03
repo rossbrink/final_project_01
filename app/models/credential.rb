@@ -12,4 +12,6 @@
 #  experience_id :integer
 #
 class Credential < ApplicationRecord
+  belongs_to(:experience, { :required => true, :class_name => "Experience", :foreign_key => "experience_id" })
+  
 end
