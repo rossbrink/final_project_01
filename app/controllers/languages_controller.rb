@@ -19,7 +19,9 @@ class LanguagesController < ApplicationController
 
   def create
     the_language = Language.new
-    the_language.name = params.fetch("query_name")
+    the_language.name = params[:query_name]
+    # tag_ids = params[:tag_ids]
+
 
     if the_language.valid?
       the_language.save

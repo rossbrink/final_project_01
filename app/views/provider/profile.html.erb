@@ -38,7 +38,7 @@
 
 <div>
   <form action="/insert_business_type" method="post">
-    <label for="business_name">Language</label>
+    <label for="business_name">Business Type</label>
     <select id="business_name" name="query_name">
       <option value="Individual">Individual</option>
       <option value="Non-Profit">Non-Profit</option>
@@ -218,22 +218,27 @@
 </div> %>
 
 <div>
-  <form action="/insert_language" method="post">
+  <form action="/insert_spoken_language" method="post">
     <legend>Languages</legend>
 
       <div>
         <label for="language_name">English</label>
-        <input id="language_name" type="checkbox" name="query_name" value="English">
+        <input id="language_name" type="checkbox" name="query_language_id" value="1">
       </div>
 
       <div>
         <label for="language_name">Spanish</label>
-        <input id="language_name" type="checkbox" name="query_name" value="Spanish">
+        <input id="language_name" type="checkbox" name="query_language_id" value="2">
       </div>
       
       <div>
         <label for="language_name">Polish</label>
-        <input id="language_name" type="checkbox" name="query_name" value="Polish">
+        <input id="language_name" type="checkbox" name="query_language_id" value="3">
+      </div>
+
+      <div>
+        <label for="language_speaker"></label>
+        <input id="language_speaker" type="hidden" name="query_provider_id" value="1123">
       </div>
 
       <div>
